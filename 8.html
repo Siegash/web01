@@ -1,0 +1,1084 @@
+//Lab I
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linha do tempo visual — as 4 eras da evolução</title>
+    <style>
+        body {
+            font-family: Segoe UI, sans-serif;
+            padding: 22px;
+            background: #f8fafc;
+            color: #0f172a
+        }
+        
+        h2 {
+            font-size: 1.1rem;
+            color: #0369a1;
+            margin-bottom: 16px;
+            text-align: center
+        }
+        
+        .linha {
+            display: flex;
+            align-items: stretch;
+            justify-content: space-between;
+            gap: 8px;
+            flex-wrap: wrap
+        }
+        
+        .linha>div:not(.seta) {
+            flex: 1;
+            min-width: 140px;
+            border: 2px solid #cbd5e1;
+            border-radius: 12px;
+            padding: 14px 10px;
+            text-align: center;
+            position: relative;
+            transition: transform .2s
+        }
+        
+        .linha>div:not(.seta):hover {
+            transform: translateY(-3px)
+        }
+        
+        .num {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #fff;
+            border: 2px solid currentColor;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .8rem;
+            font-weight: 900
+        }
+        
+        .era1 {
+            border-color: #64748b;
+            color: #334155
+        }
+        
+        .era2 {
+            border-color: #0284c7;
+            color: #0369a1
+        }
+        
+        .era3 {
+            border-color: #7c3aed;
+            color: #6d28d9
+        }
+        
+        .era4 {
+            border-color: #059669;
+            color: #047857
+        }
+        
+        .linha h3 {
+            font-size: .86rem;
+            margin-bottom: 3px
+        }
+        
+        .linha p {
+            font-size: .72rem;
+            opacity: .7;
+            margin-bottom: 8px
+        }
+        
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            justify-content: center
+        }
+        
+        .tags span {
+            font-size: .62rem;
+            background: rgba(0, 0, 0, .08);
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-weight: 700
+        }
+        
+        .seta {
+            display: flex;
+            align-items: center;
+            color: #94a3b8;
+            font-weight: 900;
+            font-size: 1.2rem
+        }
+        
+        @media(max-width:600px) {
+            .seta {
+                transform: rotate(90deg)
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h2>🕰️ Linha do tempo</h2>
+    <div class="linha">
+        <div class="era1"><span class="num">1</span>
+            <h3>Sites Estáticos</h3>
+            <p>Anos 1990</p>
+            <div class="tags"><span>HTML</span><span>FTP</span></div>
+        </div>
+        <div class="seta">→</div>
+        <div class="era2"><span class="num">2</span>
+            <h3>CMS e Redes</h3>
+            <p>Anos 2000</p>
+            <div class="tags"><span>WordPress</span><span>Blogs</span></div>
+        </div>
+        <div class="seta">→</div>
+        <div class="era3"><span class="num">3</span>
+            <h3>SEO e Mobile</h3>
+            <p>Anos 2010</p>
+            <div class="tags"><span>Google</span><span>Responsivo</span></div>
+        </div>
+        <div class="seta">→</div>
+        <div class="era4"><span class="num">4</span>
+            <h3>IA e Personalização</h3>
+            <p>2018-2026</p>
+            <div class="tags"><span>IA</span><span>VR/AR</span></div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+//Lab II
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparador: site estático × site moderno</title>
+    <style>
+        body {
+            font-family: Segoe UI, sans-serif;
+            padding: 22px;
+            background: #f8fafc;
+            color: #0f172a
+        }
+        
+        h2 {
+            font-size: 1.1rem;
+            color: #0369a1;
+            margin-bottom: 14px
+        }
+        
+        .comparador {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px
+        }
+        
+        .coluna {
+            background: #fff;
+            border: 2px solid #cbd5e1;
+            border-radius: 12px;
+            padding: 16px
+        }
+        
+        .antigo {
+            border-color: #94a3b8;
+            background: #f1f5f9
+        }
+        
+        .moderno {
+            border-color: #0284c7
+        }
+        
+        .coluna h3 {
+            font-size: .88rem;
+            margin-bottom: 10px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid #e2e8f0
+        }
+        
+        .antigo h3 {
+            color: #475569
+        }
+        
+        .moderno h3 {
+            color: #0284c7
+        }
+        
+        .coluna p {
+            font-size: .82rem;
+            margin-bottom: 8px;
+            line-height: 1.5
+        }
+        
+        .coluna a {
+            color: #0284c7;
+            font-size: .8rem;
+            text-decoration: underline
+        }
+        
+        .coluna label {
+            display: block;
+            font-size: .76rem;
+            font-weight: 700;
+            margin-bottom: 4px
+        }
+        
+        .coluna input {
+            width: 100%;
+            padding: 7px 10px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: .8rem;
+            margin-bottom: 10px
+        }
+        
+        .cards {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 10px
+        }
+        
+        .mini {
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 6px;
+            border-radius: 6px;
+            font-size: .66rem;
+            font-weight: 700;
+            flex: 1;
+            text-align: center
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #0284c7;
+            color: #fff;
+            padding: 7px 16px;
+            border-radius: 6px;
+            font-size: .78rem;
+            text-decoration: none;
+            font-weight: 700
+        }
+        
+        .rodape {
+            font-size: .68rem;
+            opacity: .6;
+            margin-top: 10px;
+            border-top: 1px dashed #cbd5e1;
+            padding-top: 6px
+        }
+        
+        @media(max-width:600px) {
+            .comparador {
+                grid-template-columns: 1fr
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Evolução: um antes e depois</h2>
+    <div class="comparador">
+        <div class="coluna antigo">
+            <h3>📄 Site Estático (1995)</h3>
+            <p><strong>Bem-vindo ao nosso site!</strong></p>
+            <p>Somos uma empresa de consultoria fundada em 1995.</p>
+            <p>Telefone: (32) 3000-0000</p><a href="#">Fale conosco</a>
+            <p class="rodape">© 1995</p>
+        </div>
+        <div class="coluna moderno">
+            <h3>🚀 Site Moderno (2026)</h3>
+            <p><strong>Bem-vindo(a)!</strong> Personalizamos a experiência para você.</p><label>Buscar:</label><input placeholder="Digite o que procura..." />
+            <div class="cards">
+                <div class="mini">📊 Análise em tempo real</div>
+                <div class="mini">🤖 Recomendação por IA</div>
+                <div class="mini">🎯 Personalização</div>
+            </div><a class="btn">Começar</a>
+            <p class="rodape">© 2026 • LGPD</p>
+        </div>
+    </div>
+</body>
+
+</html>
+//Lab 03
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela de Métricas Avançadas — as 9 da apostila</title>
+    <style>
+        body {
+            font-family: Segoe UI, sans-serif;
+            padding: 18px;
+            background: #f8fafc;
+            color: #0f172a
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, .06);
+            border-radius: 10px;
+            overflow: hidden
+        }
+        
+        caption {
+            background: #0284c7;
+            color: #fff;
+            font-weight: bold;
+            padding: 12px;
+            text-align: left;
+            font-size: .86rem
+        }
+        
+        thead th {
+            background: #0369a1;
+            color: #fff;
+            padding: 10px 8px;
+            text-align: left;
+            font-size: .76rem
+        }
+        
+        tbody th {
+            background: #e0f2fe;
+            color: #0369a1;
+            text-align: center;
+            padding: 10px;
+            font-size: .8rem;
+            font-weight: 900
+        }
+        
+        tbody td {
+            border: 1px solid #cbd5e1;
+            padding: 10px 8px;
+            font-size: .78rem;
+            line-height: 1.4
+        }
+        
+        tbody tr:nth-child(even) td {
+            background: #f8fafc
+        }
+        
+        tbody tr:hover td {
+            background: #fef3c7
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <caption>9 métricas avançadas (fonte: apostila Proz — Tema 01)</caption>
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Métrica</th>
+                <th scope="col">O que mede</th>
+                <th scope="col">Exemplo de leitura</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Conversão por Segmento</td>
+                <td>Conversão por origem do tráfego</td>
+                <td>Instagram: 3,2% • Google: 5,8%</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Análise de Funil</td>
+                <td>Comportamento em cada etapa</td>
+                <td>1000 → 300 → 60 (compra)</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Tempo de Permanência</td>
+                <td>Quanto o usuário fica no conteúdo</td>
+                <td>Vídeo: 3min • Texto: 45s</td>
+            </tr>
+            <tr>
+                <th scope="row">4</th>
+                <td>Taxa de Rejeição</td>
+                <td>Saída sem interagir</td>
+                <td>Contato: 78% • Blog: 42%</td>
+            </tr>
+            <tr>
+                <th scope="row">5</th>
+                <td>Compartilhamento Social</td>
+                <td>Alcance orgânico real</td>
+                <td>Promoção: 10x mais que institucional</td>
+            </tr>
+            <tr>
+                <th scope="row">6</th>
+                <td>Engajamento Mobile</td>
+                <td>Comportamento no celular</td>
+                <td>82% dos acessos</td>
+            </tr>
+            <tr>
+                <th scope="row">7</th>
+                <td>Testes A/B</td>
+                <td>Comparar versões de conteúdo</td>
+                <td>Título A: 4% × B: 7%</td>
+            </tr>
+            <tr>
+                <th scope="row">8</th>
+                <td>Palavras-chave</td>
+                <td>Desempenho orgânico por termo</td>
+                <td>"gestão web": 500 • "Cms headless": 80</td>
+            </tr>
+            <tr>
+                <th scope="row">9</th>
+                <td>Conversão por Canal</td>
+                <td>Eficácia de cada canal</td>
+                <td>E-mail: 8% • Pago: 3%</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>
+//LabIV
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cards: Desafios × Oportunidades</title>
+    <style>
+        body {
+            font-family: Segoe UI, sans-serif;
+            padding: 20px;
+            background: #f8fafc
+        }
+        
+        h2 {
+            font-size: 1.1rem;
+            color: #0f172a;
+            margin-bottom: 16px;
+            text-align: center
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px
+        }
+        
+        .coluna {
+            background: #fff;
+            border-radius: 12px;
+            padding: 14px;
+            border: 2px solid
+        }
+        
+        .coluna h3 {
+            font-size: .9rem;
+            margin-bottom: 10px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid #e2e8f0
+        }
+        
+        .desafios {
+            border-color: #f87171
+        }
+        
+        .desafios h3 {
+            color: #b91c1c
+        }
+        
+        .oportunidades {
+            border-color: #10b981
+        }
+        
+        .oportunidades h3 {
+            color: #047857
+        }
+        
+        .card {
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 8px 10px;
+            margin-bottom: 6px;
+            font-size: .76rem;
+            line-height: 1.4
+        }
+        
+        .desafios .card strong {
+            color: #b91c1c
+        }
+        
+        .oportunidades .card strong {
+            color: #047857
+        }
+        
+        .card p {
+            margin-top: 2px;
+            color: #475569;
+            font-size: .72rem
+        }
+        
+        @media(max-width:600px) {
+            .grid {
+                grid-template-columns: 1fr
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h2>⚖️ Desafios e Oportunidades Avançadas</h2>
+    <div class="grid">
+        <div class="coluna desafios">
+            <h3>⚠️ Desafios (6)</h3>
+            <div class="card">📚 <strong>1. Saturação de Conteúdo</strong>
+                <p>Muita coisa publicada. Destacar exige qualidade cirúrgica.</p>
+            </div>
+            <div class="card">⚡ <strong>2. Mudanças Algorítmicas</strong>
+                <p>Google e redes mudam regras. Adaptação constante.</p>
+            </div>
+            <div class="card">🎯 <strong>3. Personalização Requer Precisão</strong>
+                <p>Requer dados, ética e compreensão do usuário.</p>
+            </div>
+            <div class="card">🌐 <strong>4. Diversificação de Plataformas</strong>
+                <p>Site, app, redes — tudo precisa ser coeso.</p>
+            </div>
+            <div class="card">🚀 <strong>5. Evolução Tecnológica</strong>
+                <p>VR, voz, IA — exigem aprender sempre.</p>
+            </div>
+            <div class="card">📊 <strong>6. Métricas Complexas</strong>
+                <p>Dados avançados exigem interpretação correta.</p>
+            </div>
+        </div>
+        <div class="coluna oportunidades">
+            <h3>✅ Oportunidades (7)</h3>
+            <div class="card">✨ <strong>1. Experiência Aprimorada</strong>
+                <p>Personalização que encanta.</p>
+            </div>
+            <div class="card">🎬 <strong>2. Multimídia Envolvente</strong>
+                <p>Vídeo e podcast conectam emocionalmente.</p>
+            </div>
+            <div class="card">🔬 <strong>3. Insights Profundos</strong>
+                <p>Ferramentas analíticas revelam comportamento.</p>
+            </div>
+            <div class="card">🌍 <strong>4. Expansão Global</strong>
+                <p>Localizar abre mercados internacionais.</p>
+            </div>
+            <div class="card">🎨 <strong>5. Inovação Tecnológica</strong>
+                <p>AR e VR criam experiências únicas.</p>
+            </div>
+            <div class="card">🤝 <strong>6. Conexões Profundas</strong>
+                <p>Redes sociais aproximam marca e cliente.</p>
+            </div>
+            <div class="card">🌐 <strong>7. Colaboração Global</strong>
+                <p>Equipes remotas trabalham em conjunto.</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+//Lab V
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de SEO Avançado — os 7 pilares</title>
+    <style>
+        body {
+            font-family: Segoe UI, sans-serif;
+            padding: 20px;
+            background: #f8fafc;
+            color: #0f172a
+        }
+        
+        h2 {
+            font-size: 1.1rem;
+            color: #0284c7;
+            margin-bottom: 14px;
+            text-align: center
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 10px
+        }
+        
+        .seo {
+            background: #fff;
+            border: 2px solid #cbd5e1;
+            border-top: 4px solid #0284c7;
+            border-radius: 10px;
+            padding: 12px 14px
+        }
+        
+        .seo h3 {
+            font-size: .86rem;
+            color: #0369a1;
+            margin-bottom: 4px
+        }
+        
+        .seo p {
+            font-size: .78rem;
+            color: #475569;
+            margin-bottom: 8px;
+            line-height: 1.4
+        }
+        
+        .dica {
+            background: #fef3c7;
+            border-left: 3px solid #d97706;
+            padding: 6px 8px;
+            border-radius: 4px;
+            font-size: .72rem;
+            color: #78350f
+        }
+        
+        .seo:nth-child(2) {
+            border-top-color: #10b981
+        }
+        
+        .seo:nth-child(3) {
+            border-top-color: #7c3aed
+        }
+        
+        .seo:nth-child(4) {
+            border-top-color: #f59e0b
+        }
+        
+        .seo:nth-child(5) {
+            border-top-color: #ec4899
+        }
+        
+        .seo:nth-child(6) {
+            border-top-color: #06b6d4
+        }
+        
+        .seo:nth-child(7) {
+            border-top-color: #8b5cf6
+        }
+    </style>
+</head>
+
+<body>
+    <h2>🔍 SEO Avançado — os 7 pilares</h2>
+    <div class="grid">
+        <div class="seo">
+            <h3>1. Cauda Longa</h3>
+            <p>Palavras-chave específicas e altamente direcionadas.</p>
+            <div class="dica">💡 Ex: em vez de "marketing", usar "marketing para clínica odontológica em Juiz de Fora".</div>
+        </div>
+        <div class="seo">
+            <h3>2. LSI (Indexação Semântica Latente)</h3>
+            <p>Variações que reforçam o tema principal.</p>
+            <div class="dica">💡 Ex: "gestão de conteúdo" → "cms", "publicação web", "calendário editorial".</div>
+        </div>
+        <div class="seo">
+            <h3>3. Intenção de Busca</h3>
+            <p>Entender o que o usuário quer ao digitar.</p>
+            <div class="dica">💡 Informacional × transacional × navegacional × comercial.</div>
+        </div>
+        <div class="seo">
+            <h3>4. Link Building Estratégico</h3>
+            <p>Parcerias e conteúdo compartilhável que atrai backlinks de qualidade.</p>
+            <div class="dica">💡 Não compre links. Produza conteúdo que outras pessoas queiram citar.</div>
+        </div>
+        <div class="seo">
+            <h3>5. Otimização Técnica</h3>
+            <p>Meta tags, URLs, dados estruturados, velocidade.</p>
+            <div class="dica">💡 Velocidade de carregamento afeta a classificação diretamente.</div>
+        </div>
+        <div class="seo">
+            <h3>6. Acompanhamento Contínuo</h3>
+            <p>Ferramentas de análise para identificar tendências.</p>
+            <div class="dica">💡 Meça mensalmente. Sem medição, SEO vira chute.</div>
+        </div>
+        <div class="seo">
+            <h3>7. Adaptação a Mudanças</h3>
+            <p>Buscas por voz e pesquisas locais exigem ajuste contínuo.</p>
+            <div class="dica">💡 Otimize para perguntas naturais (ex: "qual o melhor horário...").</div>
+        </div>
+    </div>
+</body>
+
+</html>
+//LabVI
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funil de métricas — visualização simplificada</title>
+    <style>
+        body {
+            font-family: Segoe UI, sans-serif;
+            padding: 20px;
+            background: #f8fafc;
+            color: #0f172a
+        }
+        
+        h2 {
+            font-size: 1.1rem;
+            color: #0284c7;
+            margin-bottom: 14px;
+            text-align: center
+        }
+        
+        .funil {
+            display: flex;
+            flex-direction: column;
+            gap: 6px
+        }
+        
+        .etapa {
+            background: #fff;
+            border-radius: 8px;
+            padding: 2px;
+            cursor: pointer;
+            transition: .2s
+        }
+        
+        .etapa:hover {
+            transform: scale(1.01)
+        }
+        
+        .barra {
+            color: #fff;
+            padding: 12px 16px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: .84rem;
+            transition: width .4s
+        }
+        
+        .info {
+            background: #e0f2fe;
+            border-left: 3px solid #0284c7;
+            padding: 10px 14px;
+            border-radius: 6px;
+            margin-top: 14px;
+            font-size: .8rem;
+            color: #0369a1;
+            font-weight: 600
+        }
+    </style>
+</head>
+
+<body>
+    <h2>📊 Funil de Métricas — exemplo</h2>
+    <div class="funil">
+        <div class="etapa" data-taxa="100%">
+            <div class="barra" style="width:100%;background:#0284c7"><span>1. Visita • 100%</span></div>
+        </div>
+        <div class="etapa" data-taxa="30%">
+            <div class="barra" style="width:70%;background:#0891b2"><span>2. Interesse • 30%</span></div>
+        </div>
+        <div class="etapa" data-taxa="12%">
+            <div class="barra" style="width:40%;background:#0d9488"><span>3. Decisão • 12%</span></div>
+        </div>
+        <div class="etapa" data-taxa="6%">
+            <div class="barra" style="width:20%;background:#059669"><span>4. Compra • 6%</span></div>
+        </div>
+    </div>
+    <div id="info" class="info">Clique em qualquer barra para ver a taxa de conversão até a etapa anterior.</div>
+    <script>
+        document.querySelectorAll(".etapa").forEach(function(el) {
+            el.addEventListener("click", function() {
+                var t = el.dataset.taxa;
+                document.getElementById("info").textContent = "Etapa com taxa de " + t + " dos visitantes que chegaram até aqui.";
+            });
+        });
+    </script>
+</body>
+
+</html>
+// Lab VII
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cards do time — quem faz o quê na era da IA</title>
+    <style>
+        body {
+            font-family: Segoe UI, sans-serif;
+            padding: 20px;
+            background: #f8fafc;
+            color: #0f172a
+        }
+        
+        h2 {
+            font-size: 1.1rem;
+            color: #0284c7;
+            margin-bottom: 14px;
+            text-align: center
+        }
+        
+        .grade {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px
+        }
+        
+        .papel {
+            background: #fff;
+            border: 2px solid #cbd5e1;
+            border-top: 4px solid #0284c7;
+            border-radius: 10px;
+            padding: 12px 14px;
+            cursor: pointer;
+            transition: .2s
+        }
+        
+        .papel:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(2, 132, 199, .15)
+        }
+        
+        .papel .icon {
+            font-size: 1.5rem;
+            margin-bottom: 4px
+        }
+        
+        .papel h3 {
+            font-size: .86rem;
+            color: #0369a1;
+            margin-bottom: 4px
+        }
+        
+        .papel p {
+            font-size: .76rem;
+            color: #475569;
+            margin: 0;
+            line-height: 1.4
+        }
+        
+        .papel:nth-child(2) {
+            border-top-color: #10b981
+        }
+        
+        .papel:nth-child(3) {
+            border-top-color: #7c3aed
+        }
+        
+        .papel:nth-child(4) {
+            border-top-color: #ea580c
+        }
+        
+        .papel:nth-child(5) {
+            border-top-color: #ec4899
+        }
+        
+        .papel:nth-child(6) {
+            border-top-color: #f59e0b
+        }
+        
+        .info {
+            background: #e0f2fe;
+            border-left: 3px solid #0284c7;
+            padding: 10px 14px;
+            border-radius: 6px;
+            margin-top: 14px;
+            font-size: .8rem;
+            color: #0369a1;
+            font-weight: 600
+        }
+    </style>
+</head>
+
+<body>
+    <h2>👥 Papéis do time editorial em 2026</h2>
+    <div class="grade">
+        <div class="papel" data-conv="Conversa com: redator, SEO, dados.">
+            <div class="icon">📝</div>
+            <h3>Editor de Conteúdo</h3>
+            <p>Define a pauta e o calendário. Aprova o que vai ao ar.</p>
+        </div>
+        <div class="papel" data-conv="Conversa com: editor, SEO, dados.">
+            <div class="icon">✍️</div>
+            <h3>Redator</h3>
+            <p>Escreve com SEO on-page, acessibilidade e narrativa.</p>
+        </div>
+        <div class="papel" data-conv="Conversa com: CMS, designer, redator.">
+            <div class="icon">💻</div>
+            <h3>Front-End</h3>
+            <p>Monta o visual. Cuida de performance e responsividade.</p>
+        </div>
+        <div class="papel" data-conv="Conversa com: front-end, editor.">
+            <div class="icon">⚙️</div>
+            <h3>Admin de CMS</h3>
+            <p>Configura campos, usuários e permissões do painel.</p>
+        </div>
+        <div class="papel" data-conv="Conversa com: redator, front-end, dados.">
+            <div class="icon">🔍</div>
+            <h3>Especialista em SEO</h3>
+            <p>Pesquisa palavras-chave, link building, otimização técnica.</p>
+        </div>
+        <div class="papel" data-conv="Conversa com: todos — é o hub de dados.">
+            <div class="icon">📊</div>
+            <h3>Analista de Dados</h3>
+            <p>Transforma métricas em decisões e relatórios.</p>
+        </div>
+    </div>
+    <div id="info-conv" class="info">Clique em qualquer cartão para ver com quem essa função conversa.</div>
+    <script>
+        document.querySelectorAll(".papel").forEach(function(el) {
+            el.addEventListener("click", function() {
+                document.getElementById("info-conv").textContent = el.dataset.conv;
+            });
+        });
+    </script>
+</body>
+
+</html>
+// LabVIII
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de engajamento — as 10 estratégias em cards</title>
+    <style>
+        body {
+            font-family: Segoe UI, sans-serif;
+            padding: 20px;
+            background: #f8fafc;
+            color: #0f172a
+        }
+        
+        h2 {
+            font-size: 1.1rem;
+            color: #ec4899;
+            margin-bottom: 14px;
+            text-align: center
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px
+        }
+        
+        .card {
+            background: #fff;
+            border: 2px solid #cbd5e1;
+            border-radius: 10px;
+            padding: 12px 14px;
+            position: relative
+        }
+        
+        .num {
+            position: absolute;
+            top: 8px;
+            right: 10px;
+            background: #ec4899;
+            color: #fff;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .72rem;
+            font-weight: 900
+        }
+        
+        .card h4 {
+            font-size: .82rem;
+            color: #be185d;
+            margin-bottom: 4px;
+            padding-right: 30px
+        }
+        
+        .card p {
+            font-size: .74rem;
+            color: #475569;
+            margin-bottom: 8px;
+            line-height: 1.4
+        }
+        
+        .dica {
+            background: #fdf2f8;
+            border-left: 3px solid #be185d;
+            padding: 5px 8px;
+            border-radius: 4px;
+            font-size: .68rem;
+            color: #831843
+        }
+    </style>
+</head>
+
+<body>
+    <h2>❤️ 10 estratégias de engajamento</h2>
+    <div class="grid">
+        <div class="card"><span class="num">1</span>
+            <h4>Conteúdo de Qualidade</h4>
+            <p>Valioso, relevante e bem pesquisado.</p>
+            <div class="dica">💡 Invista em pesquisa antes de escrever.</div>
+        </div>
+        <div class="card"><span class="num">2</span>
+            <h4>Narrativa Atraente</h4>
+            <p>Histórias envolventes e emocionais.</p>
+            <div class="dica">💡 Comece com uma cena ou pergunta.</div>
+        </div>
+        <div class="card"><span class="num">3</span>
+            <h4>Mídias Visuais</h4>
+            <p>Imagens, vídeos, infográficos.</p>
+            <div class="dica">💡 1 imagem boa vale mais que 5 ruins.</div>
+        </div>
+        <div class="card"><span class="num">4</span>
+            <h4>Interatividade</h4>
+            <p>Enquetes, quizzes, questionários.</p>
+            <div class="dica">💡 Todo post pode ser uma enquete.</div>
+        </div>
+        <div class="card"><span class="num">5</span>
+            <h4>Responder Comentários</h4>
+            <p>Mostrar que a marca escuta.</p>
+            <div class="dica">💡 Responda em até 24h.</div>
+        </div>
+        <div class="card"><span class="num">6</span>
+            <h4>UGC (Conteúdo do Usuário)</h4>
+            <p>Incentivar a criação pelo público.</p>
+            <div class="dica">💡 Concursos de posts funcionam bem.</div>
+        </div>
+        <div class="card"><span class="num">7</span>
+            <h4>Personalização</h4>
+            <p>Conteúdo sob medida para o interesse.</p>
+            <div class="dica">💡 Use segmentação de e-mail marketing.</div>
+        </div>
+        <div class="card"><span class="num">8</span>
+            <h4>Campanhas e Desafios</h4>
+            <p>Concursos e desafios com participação.</p>
+            <div class="dica">💡 Ofereça recompensa clara.</div>
+        </div>
+        <div class="card"><span class="num">9</span>
+            <h4>Acesso Antecipado</h4>
+            <p>Conteúdo exclusivo para fiéis.</p>
+            <div class="dica">💡 "Lançamento em primeira mão" motiva.</div>
+        </div>
+        <div class="card"><span class="num">10</span>
+            <h4>Consistência</h4>
+            <p>Presença constante ao longo do tempo.</p>
+            <div class="dica">💡 1 post por semana é melhor que 10 de uma vez.</div>
+        </div>
+    </div>
+</body>
+
+</html>
